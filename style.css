@@ -1,0 +1,47 @@
+.background-img {
+  background-image: url(https://images.unsplash.com/photo-1560780552-ba54683cb263?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+  background-size: cover;
+}
+
+.title {
+  border: 3px solid #6ec923;
+  border-radius: 5px;
+  border-style: ridge;
+  background-color: #3f860446;
+  font-style: oblique;
+  font-family: monospace;
+}
+
+.radiation-clicker {
+  border-radius: 30%;
+  max-height: 300px;
+  border: 5px solid #6ec923;
+  border-style: double;
+  background-color: black;
+}
+
+.radiation-clicker:hover {
+  border-radius: 30%;
+  max-height: 310px;
+  border: 5px solid #6ec923;
+  border-style: double;
+  background-color: black;
+}
+
+.info-panel {
+  border: 3px solid #6ec923;
+  border-radius: 5px;
+  border-style: ridge;
+  background-color: #3f860446;
+  font-style: oblique;
+  font-family: monospace;
+}
+
+.upgrades {
+  border: 3px solid #6ec923;
+  border-radius: 5px;
+  border-style: ridge;
+  background-color: #010200;
+  font-style: oblique;
+  font-family: monospace;
+}

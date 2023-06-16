@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Uranium Miner</title>
+</head>
+
+<body class="container-fluid background-img">
+  <header class="d-flex row">
+    <p class="col-12 text-center p-5 fs-1"><span class="title">Uranium Miner!</span></p>
+
+  </header>
+  <main class="d-flex row">
+    <div class="col-12 text-center pt-5">
+      <img class="radiation-clicker" onclick="mineResources()"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Radiation_warning_symbol.svg/768px-Radiation_warning_symbol.svg.png"
+        alt="Radiation">
+    </div>
+
+  </main>
+  <footer class="row">
+    <div class="col-12 text-center">
+      <p class="align-items-end"> Uranium collected =<span id="resourcesQty">95</span></p>
+    </div>
+    <div class="info-panel row text-light text-center">
+      <div class="upgrades col-3" onclick="buyShovel()"> Shovel <span>Cost= <span id="shovel-price">100</span></span>
+        <p>Shovel's = <span id="shovel">0</span> </p>
+      </div>
+      <div class="upgrades col-3" onclick="buyDrill()"> Drill <span>Cost= <span id="drill-price">250</span></span>
+        <p>Drills = <span id="drills">0</span></p>
+      </div>
+      <div class="upgrades col-3" onclick="buyGeiger()"> Geiger Counter <span>Cost= <span
+            id="geiger-price">500</span></span>
+        <p>Geiger Counter's = <span id="geiger">0</span></p>
+      </div>
+      <div class="upgrades col-3" onclick="buyRefinery()"> Refinery <span>Cost= <span id="">1,000</span></span>
+        <p>Refineries = <span id="refinery">0</span></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="apps.js"></script>
+</body>
+
+</html>
