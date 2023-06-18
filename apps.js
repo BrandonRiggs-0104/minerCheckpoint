@@ -21,6 +21,12 @@ let automaticUpgrades = [
     price: 500,
     quantity: 0,
     multiplier: 25
+  },
+  {
+    name: 'refinery',
+    price: 1000,
+    quantity: 0,
+    multiplier: 50
   }
 ];
 
@@ -33,7 +39,12 @@ function mineResources() {
   let drills = clickUpgrades.find(clickUpgrade => clickUpgrade.name == 'drill')
   let drillUp = drills.multiplier * drills.quantity
   resources += drillUp
-
+  let geiger = automaticUpgrades.find(automaticUpgrade => automaticUpgrade.name == 'geiger')
+  let geigerUp = geiger.multiplier * geiger.quantity
+  resources += geigerUp
+  let refinery = automaticUpgrades.find(automaticUpgrade => automaticUpgrade.name == 'refinery')
+  let refineryUp = refinery.multiplier * refinery.quantity
+  resources += refineryUp
 
   drawResources()
 }
@@ -84,18 +95,27 @@ function buyGeiger() {
     resources -= geiger.price
     console.log('geiger', geiger);
     console.log('resources', resources);
+    drawGeiger()
+    if (geiger.quantity >= 1) {
+      setInterval(mineResources, 3000)
+    }
   }
   else {
     window.alert('Not enough Uranium!')
   }
 }
 function buyRefinery() {
-  if (resources >= 1000) {
-    // @ts-ignore
-    refinery++
-
-    console.log('refinery');
+  let refinery = automaticUpgrades.find(automaticUpgrade => automaticUpgrade.name == 'refinery')
+  if (resources >= refinery.price) {
+    refinery.quantity++
+    refinery.price += 500
+    resources -= refinery.price
+    console.log('refinery', refinery);
+    console.log('resources', resources);
     drawRefinery()
+    if (refinery.quantity >= 1) {
+      setInterval(mineResources, 5000)
+    }
   }
   else {
     window.alert('Not enough Uranium!')
@@ -121,24 +141,32 @@ function drawShovel() {
   shovelPrice.innerText = shovel.price
 }
 function drawDrill() {
+  let drills = clickUpgrades.find(clickUpgrade => clickUpgrade.name == 'drill')
   let drill = document.getElementById('drills')
   let drillPrice = document.getElementById('drill-price')
-  let drills = clickUpgrades.find(clickUpgrade => clickUpgrade.name == 'drill')
 
   drill.innerText = drills.quantity.toString()
   // @ts-ignore
   drillPrice.innerText = drills.price
 }
 function drawGeiger() {
-  let geiger = clickUpgrades.find(clickUpgrade => clickUpgrade.name == 'geiger')
+  let geiger = automaticUpgrades.find(automaticUpgrade => automaticUpgrade.name == 'geiger')
   let geigers = document.getElementById('geiger')
   let geigerPrice = document.getElementById('geiger-price')
   // @ts-ignore
   geigers.innerText = geiger.quantity
+  // @ts-ignore
   geigerPrice.innerText = geiger.price
+
 }
 function drawRefinery() {
-  let refine = document.getElementById('refinery')
+  let refinery = automaticUpgrades.find(automaticUpgrade => automaticUpgrade.name == 'refinery')
+  let refineryQty = document.getElementById('refinery')
+  let refineryPrice = document.getElementById('refinery-price')
   // @ts-ignore
-  refine.innerText = refinery
+  refineryQty.innerText = refinery.quantity
+
+  refineryPrice.innerText = refinery.price
 }
+
+// SECTION auto upgrade intervals
