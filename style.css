@@ -45,3 +45,12 @@
   font-style: oblique;
   font-family: monospace;
 }
+
+.clickcounter {
+  border: 3px solid #6ec923;
+  border-radius: 5px;
+  border-style: ridge;
+  background-color: #010200;
+  font-style: oblique;
+  font-family: monospace;
+}

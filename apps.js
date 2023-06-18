@@ -1,6 +1,11 @@
 
 // SECTION global variables
 let resources = 1000
+let resourcesPerClick = [
+  {
+    quantity: 1
+  }
+]
 let clickUpgrades = [
   {
     name: 'shovel',
@@ -166,7 +171,13 @@ function drawRefinery() {
   // @ts-ignore
   refineryQty.innerText = refinery.quantity
 
+  // @ts-ignore
   refineryPrice.innerText = refinery.price
 }
-
-// SECTION auto upgrade intervals
+// SECTION resources per click
+function perClick() {
+  let perClick = resourcesPerClick.find(resourcesPer => resourcesPer.quantity == 1)
+  let clicks = document.getElementById('clickcount')
+  // @ts-ignore
+  clicks.innerText = perClick.quantity
+}
