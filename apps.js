@@ -74,6 +74,8 @@ function update() {
   drawDrill()
   drawGeiger()
   drawRefinery()
+  autoInterval()
+  perClick()
 }
 
 function buyShovel() {
@@ -187,11 +189,26 @@ function drawRefinery() {
 }
 // SECTION resources per click
 function perClick() {
-  let perClick = resourcesPerClick.find(resourcesPer => resourcesPer.quantity == 1)
+  let shovel = clickUpgrades.find(clickUpgrade => clickUpgrade.name == 'shovel')
+  let shovelCollect = shovel.multiplier * shovel.quantity
+
+  let drills = clickUpgrades.find(clickUpgrade => clickUpgrade.name == 'drill')
+  let drillsCollect = drills.multiplier * drills.quantity
+
   let clicks = document.getElementById('clickcount')
   // @ts-ignore
-  clicks.innerText = perClick.quantity
+  clicks.innerText = (shovelCollect + drillsCollect) + 1
+}
+function autoInterval() {
+  let auto = document.getElementById('automaticMiner')
+  let geiger = automaticUpgrades.find(automaticUpgrade => automaticUpgrade.name == 'geiger')
+
+  let geigerUp = geiger.multiplier * geiger.quantity
+
+  let refinery = automaticUpgrades.find(automaticUpgrade => automaticUpgrade.name == 'refinery')
+  let refineryUp = refinery.multiplier * refinery.quantity
+  auto.innerText = refineryUp + geigerUp
 }
 
-// FIXME start your intervals down here so that there is only one interval per upgrade
+
 setInterval(collectAutomatic, 3000)
